@@ -10,11 +10,9 @@ from random import randint
 from re import I, L
 from webbrowser import get
 from flask import  render_template, request, redirect ,flash
-from pyparsing import Iterable
 from sqlalchemy import false
 from werkzeug.utils import secure_filename
 from flask import json
-from flask_sqlalchemy import SQLAlchemy
 from app import *
 from flask_mysqldb import MySQL
 import time
@@ -23,7 +21,6 @@ from io import BytesIO
 from PIL import Image
 from sched import scheduler
 from apscheduler.schedulers.background import BackgroundScheduler
-from flask_apscheduler import APScheduler
 from collections import OrderedDict
 
 
@@ -322,7 +319,7 @@ def clear():
 
 
 if __name__ == "__main__":
-	app.run(debug=False)
+	app.run(debug=False , port=80)
 
 # CREATE TABLE replacement(
 # 	id int ,
@@ -332,9 +329,25 @@ if __name__ == "__main__":
 
 # CREATE TABLE config(
 # 	id int AUTO_INCREMENT ,
-#     capacity int NOT NULL ,
+#     capacity float NOT NULL ,
 #     policty int ,
 #     primary key (id) ,
 #     FOREIGN key (policty) REFERENCES replacement(id)
 # );
 
+# CREATE TABLE todo(
+# 	id int(200) AUTO_INCREMENT,
+# 	key_img varchar(200) , 
+# 	path varchar(200) , 
+# 	primary key (id)
+# );
+# CREATE TABLE statistic(
+# 	id int(11) AUTO_INCREMENT,
+# 	miss_rate float , 
+# 	hit_rate float ,
+# 	number_of_requests int(11) ,
+# 	DATETIME DATETIME , 
+# 	number_of_item int(11) ,
+# 	total_size float ,
+# 	primary key (id)
+# );
