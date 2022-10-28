@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{{title}}</title>
+	<link rel="stylesheet" href="{{url_for('static' , filename = 'css/mystyle.css')}}" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+	<form>
+		<h2 class="bar">Select an image to upload</h2>
+	</form>
+
+	<p>
+		{% with messages = get_flashed_messages() %}
+		{% if messages %}
+	<ul>
+		{% for message in messages %}
+		<li>{{ message }}</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+	{% endwith %}
+	</p>
+
+	{% if filename %}
+	<div>
+		<!-- <a href="{{url_for('static', filename='uploads/' + filename)}}" target="_blank">
+				<img src="{{url_for('static', filename='uploads/' + filename)}}" width="200" height="200" />
+			</a> -->
+	
+		<!--<img src="{{ url_for('display_image', filename=filename) }}"> -->
+	</div>
+	{% endif %}
+	
+	<form class="container" method="post" action="/" enctype="multipart/form-data">
+		<dl>
+			<p>
+				<input type='text' name='key' placeholder="key" />
+	
+				<input type="file" name="file" autocomplete="off" placeholder="file" required>
+	
+			</p>
+		</dl>
+		<p>
+			<input class="btn" type="submit" value="add">
+		</p>
+		
+	</form animation: example 5s infinite; >
+	<div class="content">
+        <a  href="{{url_for('display_image')}}">display</a>
+
+		<a  href="{{url_for('list')}}">LIST</a>
+		<a  href="{{url_for('config')}}">config</a>
+		<a  href="{{url_for('statistic')}}">statistic</a>
+    </div>
+	
+</body>
+</html>

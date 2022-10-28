@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{titel}}</title>
+    <style>
+        body {
+            background-color: lightblue;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        form {
+            background-color: #fdfcfc;;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 5px;
+            border: 1px solid #000;
+        }
+
+        .btn {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #4CAF50;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #4CAF50;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 16px;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f5f5f5;
+        }
+
+        tr:hover {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .row {
+            display: flex;
+            margin-left: -5px;
+            margin-right: -5px;
+        }
+
+        .column {
+            flex: 50%;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    
+   
+
+    <form>
+        <h1 style="text-align: center">configuration of cache</h1>
+        </form>
+
+    <form class='container' action="http://127.0.0.1:5000/config" method="post">
+        <input type="radio" name="policty" value='1' checked>
+        <label for="1">random</label><br>
+        <input type="radio" name="policty" value='2' checked>
+        <label for="0">resently use</label><br>
+        <input type="text" name="capacity" placeholder="capacity" required> <br>
+        <hr>
+        <p>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li class = "flash">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        </p>
+        <input class="btn" type="submit" value="add">
+
+    </form>
+    <form>
+        <a class="btn" href="/clear">CLEAR</a>
+        <a class="btn" href="/">Home Page</a><br> <br>
+
+        
+
+        <div class="row">
+            <div class="column">
+                <table>
+                    <tr>
+                        <th>policty</th>
+                        <th>Capacity</th>
+                    </tr>
+                    <tr>
+                        {% for task in tasks %}
+                            {%if task[2] == 1%}
+                                <td>random</td>
+                                <td>{{task[1]}}MB</td>
+                            {%else%}
+                                <td>resently use</td>
+                                <td>{{task[1]}}MB</td>
+                        {%endif%}
+                    </tr>
+                    {% endfor %}
+                </table>
+
+            </div>
+            <div class="column">
+                <table>
+                    <tr>
+                        <th>key</th>
+                    </tr>
+                    <tr>
+                        {% for i in chas %}
+                        <td>{{i}}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </form>
+
+</body>
+
+</html>

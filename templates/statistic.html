@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+    <style>
+        
+        body{
+            background-color: lightblue;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        form{
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 5px;
+            border: 1px solid #4CAF50;
+        }
+        
+        .btn{
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #000;
+            text-decoration: none;
+            text-align: center ;
+        }
+        .btn:hover{
+            background-color: #fff;
+            color: #4CAF50;
+        }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 100%;
+            border: 1px solid #ddd;
+          }
+        table, th, td{
+            border: 1px solid #4CAF50;
+        }
+        th, td{
+            text-align: left;
+            padding: 16px;
+        }
+        th{
+            background-color: #4CAF50;
+            color: #fff;
+        }
+        tr:nth-child(even){
+            background-color: #f5f5f5;
+        }
+        tr:hover{
+            background-color: #4CAF50;
+            color: #fff;
+        }
+        * {
+            box-sizing: border-box;
+          }
+          
+          .row {
+            display: flex;
+            margin-left:-5px;
+            margin-right:-5px;
+          }
+          
+          .column {
+            flex: 50%;
+            padding: 5px;
+          }
+        
+    </style>
+
+</head>
+<body>
+        <form>
+		<h1 style="text-align: center">statistic of the cashe</h1>
+        <a  class="btn" href="/">Home Page</a><br> <br>
+
+        <div class="column">
+            <div class = "row">
+        
+    <table>
+        <tr>
+            <th>miss rate</th>
+            <th>hit rate</th>
+            <th>number request</th>
+            <th>number items</th>
+            <th>size items</th>
+            <th>datetime</th>
+
+        </tr>
+        {%if tasks1|length < 1%}
+        <tr>
+            <td colspan="6">No data ! wait :) </td>
+        </tr>
+        {%else%}
+        {%for i in range(length)%}
+        <tr>
+            <td>{{tasks1[i]}}%</td>
+            <td>{{tasks2[i]}}%</td>
+            <td>{{tasks3[i]}}</td>
+            <td>{{tasks4[i]}}</td>
+            <td>{{tasks5[i]}}MB</td>
+            <td>{{tasks6[i]}}</td>
+            
+        </tr>
+        {%endfor%}
+        {%endif%}
+    </table>
+    
+
+</div>
+</div>
+</form>
+</body>
+</html>

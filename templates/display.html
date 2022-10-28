@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+    <title>Display key</title>
+	<link rel="stylesheet" href="{{url_for('static' , filename = 'css/main.css')}}" />
+
+</head>
+<html>
+    <body>
+		<form>
+			<h2 class="bar">Enter the Key</h2>
+		</form>
+		<p>
+			{% with messages = get_flashed_messages() %}
+			{% if messages %}
+		<ul>
+			{% for message in messages %}
+			<li>{{ message }}</li>
+			{% endfor %}
+		</ul>
+		{% endif %}
+		{% endwith %}
+		</p>
+
+		<form class = 'container'  method="post" action="/display" enctype="multipart/form-data">
+			<dl>
+				<p>
+					
+					<input  type='text' name='key' placeholder="key" />
+					
+				</p>
+			</dl>
+			<p>
+				<input  type="submit" value="get" />
+			</p>
+		</form>
+		<div class="content">
+			
+			<a class = "a"  href="{{url_for('upload_image')}}">Home Page</a>
+		</div>
+
+    <body>    
+</html>
