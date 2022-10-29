@@ -4,7 +4,7 @@ from random import randint
 from flask import Flask, flash, redirect
 import base64
 from flask_mysqldb import MySQL
-from numpy import double
+
 
 
 UPLOAD_FOLDER = 'static/uploads/'

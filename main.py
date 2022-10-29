@@ -3,6 +3,7 @@ from asyncio import sleep
 from cgitb import reset
 from datetime import datetime
 from http.client import CannotSendHeader
+from ipaddress import ip_address
 from operator import index
 import os
 from pydoc import pager
@@ -319,7 +320,7 @@ def clear():
 
 
 if __name__ == "__main__":
-	app.run(debug=False , port=80)
+	app.run(debug=False ,host='0.0.0.0', port=5000)
 
 # CREATE TABLE replacement(
 # 	id int ,
