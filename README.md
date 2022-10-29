@@ -1,12 +1,12 @@
 # flask-web-project
 # db mysql , db_name = flask
-<center><img src="img/db.PNG" alt="/:" width="250" height="300"></center> <br>
+<center><img src="img/db.PNG" alt="/:" width="450" height="450"></center> <br>
 <center><img src="img/db_flask.PNG" alt="/:" width="250" height="300"></center>
 
 # install all the necessary library in python3  
 # ( pip3 install -library- )
 # run ( python3 main.py ) or ( python main.py )
-<center><img src="img/uploadPage.PNG" alt="/:" width="250" height="300"></center>
+<center><img src="img/uploadPage.PNG" alt="/:" width="300" height="400"></center>
 
 # About :
 <ul>
